@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-back-button defaultHref="/" color="danger"></ion-back-button>
+    </ion-buttons>
+   </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+ 
+  <ion-card *ngIf="information">
+    <ion-card-header>
+      <ion-card-title>
+        {{ information.drinks[0].strDrink }}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content text-center>
+
+      <img [src]="information.drinks[0].strDrinkThumb" class="info-img">
+       <div class="ion-margin-vertical">
+         <ion-chip  *ngIf="information.drinks[0].strAlcoholic== 'Alcoholic'" outline color="danger">
+        <ion-icon name="skull-outline"></ion-icon>
+        <ion-label>{{ information.drinks[0].strAlcoholic }}</ion-label>
+      </ion-chip>
+
+      <ion-chip *ngIf="information.drinks[0].strAlcoholic== 'Non Alcoholic'" outline color="danger">
+        <ion-icon name="pint-outline"></ion-icon>
+        <ion-label>{{ information.drinks[0].strAlcoholic }}</ion-label>
+      </ion-chip>
+
+      <ion-chip *ngIf="information.drinks[0].strCategory" outline color="danger">
+        <ion-label>{{ information.drinks[0].strCategory }}</ion-label>
+      </ion-chip>
+       </div>
+     
+
+<ion-text color="danger">
+        <h2>Ingredients</h2><br> 
+      </ion-text>
+      <ion-label text-wrap>
+          <li *ngIf="information.drinks[0].strMeasure1">{{information.drinks[0].strMeasure1 }} {{information.drinks[0].strIngredient1 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure2">{{information.drinks[0].strMeasure2 }} {{information.drinks[0].strIngredient2 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure3">{{information.drinks[0].strMeasure3 }} {{information.drinks[0].strIngredient3 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure4">{{information.drinks[0].strMeasure4 }} {{information.drinks[0].strIngredient4 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure5">{{information.drinks[0].strMeasure5 }} {{information.drinks[0].strIngredient5 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure6">{{information.drinks[0].strMeasure6 }} {{information.drinks[0].strIngredient6 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure7">{{information.drinks[0].strMeasure7 }} {{information.drinks[0].strIngredient7 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure8">{{information.drinks[0].strMeasure8 }} {{information.drinks[0].strIngredient8 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure9">{{information.drinks[0].strMeasure9 }} {{information.drinks[0].strIngredient9 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure10">{{information.drinks[0].strMeasure10 }} {{information.drinks[0].strIngredient10 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure11">{{information.drinks[0].strMeasure11 }} {{information.drinks[0].strIngredient11 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure12">{{information.drinks[0].strMeasure12 }} {{information.drinks[0].strIngredient12 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure13">{{information.drinks[0].strMeasure13 }} {{information.drinks[0].strIngredient13 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure14">{{information.drinks[0].strMeasure14 }} {{information.drinks[0].strIngredient14 }}</li>
+          <li *ngIf="information.drinks[0].strMeasure15">{{information.drinks[0].strMeasure15 }} {{information.drinks[0].strIngredient15 }}</li>
+         
+        </ion-label><br>
+
+        <ion-text color="danger">
+          <h2 >Instructions</h2><br> 
+           </ion-text>
+
+        <ion-label text-wrap> {{ information.drinks[0].strInstructions }} </ion-label><br>
+      <br>
+      
+      
+      <ion-text color="danger">
+        <h2 >Glass type</h2><br> 
+         </ion-text>
+
+      <ion-label text-wrap> {{ information.drinks[0].strGlass }} </ion-label><br>
+    <br>
+      
+ 
+      <ion-button expand="full" (click)="openWebsite()" *ngIf="information.Website && information.Website != 'N/A'">
+        <ion-icon name="open" slot="start"></ion-icon>
+        See video
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
